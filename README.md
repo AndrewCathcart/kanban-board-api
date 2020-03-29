@@ -2,7 +2,7 @@
 
 ## Description
 
-Wanted to get to grips with using [Nestjs](https://github.com/nestjs/nest) - this repo contains the backend code for a simple todo app that I've made for fun!
+Wanted to get to grips with using [NestJS](https://github.com/nestjs/nest) - this repo contains the backend code for a simple todo app that I've made for fun!
 
 ## Installation
 

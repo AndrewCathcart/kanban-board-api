@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  to-do-app:
+    volumes:
+      - ./:/usr/src/app
+    build: .
+    container_name: to-do-app
+    ports:
+      - '3000:3000'
