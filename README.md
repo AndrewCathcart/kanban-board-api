@@ -1,8 +1,8 @@
-# kanban-board-api [![CircleCI](https://circleci.com/gh/AndrewCathcart/kanban-board-api.svg?style=svg)](https://app.circleci.com/pipelines/github/AndrewCathcart/kanban-board-api)
+# nestjs-todo [![CircleCI](https://circleci.com/gh/AndrewCathcart/nestjs-todo.svg?style=svg)](https://app.circleci.com/pipelines/github/AndrewCathcart/nestjs-todo)
 
 ## Description
 
-Backend code for a Trello clone using [Nestjs](https://github.com/nestjs/nest), [TypeScript](https://www.typescriptlang.org/) & AWS.
+Wanted to get to grips with using [Nestjs](https://github.com/nestjs/nest) - this repo contains the backend code for a simple todo app that I've made for fun!
 
 ## Installation
 
