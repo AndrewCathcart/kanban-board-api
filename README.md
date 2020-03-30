@@ -2,7 +2,13 @@
 
 ## Description
 
-Wanted to get to grips with using [NestJS](https://github.com/nestjs/nest) - this repo contains the backend code for a simple todo app that I've made for fun!
+This repo contains the backend code for a todo app that I've made for fun in order practice;
+
+- [NestJS](https://github.com/nestjs/nest)
+- testing
+- docker & docker-compose
+- microservice oriented architecture
+- CI & CD
 
 ## Installation
 
