@@ -2,9 +2,22 @@
 
 ## Description
 
-Wanted to get to grips with using [Nestjs](https://github.com/nestjs/nest) - this repo contains the backend code for a simple todo app that I've made for fun!
+This repo contains the backend code for a todo app that I've made for fun in order practice;
+
+- [NestJS](https://github.com/nestjs/nest)
+- testing
+- docker & docker-compose
+- microservice oriented architecture
+- CI & CD
 
 ## Installation
+
+Prerequisites
+
+- [NodeJS](https://nodejs.org/en/) is required. This can be installed via the website or by using [nvm](https://github.com/nvm-sh/nvm) (see their documentation).
+- [Docker](https://docs.docker.com/install/) for local development.
+
+Then install dependencies
 
 ```bash
 $ npm install
@@ -14,24 +27,5 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ docker-compose up --build
 ```
