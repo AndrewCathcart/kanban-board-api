@@ -2,12 +2,12 @@
 
 ## Description
 
-This repo contains the backend code for a todo app that I've made for fun in order practice;
+This repo contains the backend code for a todo app that I'm working on for fun in order practice the following;
 
 - [NestJS](https://github.com/nestjs/nest)
-- testing
-- docker & docker-compose
-- microservice oriented architecture
+- Unit & Integration Testing
+- Docker & docker-compose
+- Microservice Architecture vs Service Oriented Architecture
 - CI & CD
 
 ## Installation
