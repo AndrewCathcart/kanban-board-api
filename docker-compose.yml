@@ -2,9 +2,25 @@ version: '3'
 
 services:
   to-do-app:
+    container_name: to-do-app
     volumes:
       - ./:/usr/src/app
+      - /usr/src/app/node_modules # make sure our local doesn't override containers
     build: .
-    container_name: to-do-app
     ports:
       - '3000:3000'
+
+  postgres:
+    container_name: postgres
+    image: 'postgres:12.2-alpine'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '54320:5432'
+    environment:
+      POSTGRES_DB: to_do_app
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_user_password
+
+volumes:
+  pgdata:
