@@ -11,6 +11,7 @@ import {
   ValidationPipe,
   ParseIntPipe,
   UseGuards,
+  Logger,
 } from '@nestjs/common';
 import { CardsService } from './cards.service';
 import { CreateCardDto } from './dto/create-card.dto';
@@ -25,6 +26,7 @@ import { User } from 'src/auth/user.entity';
 @Controller('cards')
 @UseGuards(AuthGuard())
 export class CardsController {
+  private logger = new Logger('CardsController');
   constructor(private readonly cardsService: CardsService) {}
 
   @Get()
@@ -32,6 +34,11 @@ export class CardsController {
     @Query(ValidationPipe) filterDto: GetCardsFilterDto,
     @GetUser() user: User,
   ): Promise<Card[]> {
+    this.logger.verbose(
+      `User "${user.username}" retrieving all tasks. Filters: ${JSON.stringify(
+        filterDto,
+      )}`,
+    );
     return this.cardsService.getCards(filterDto, user);
   }
 
@@ -49,6 +56,11 @@ export class CardsController {
     @Body() createCardDto: CreateCardDto,
     @GetUser() user: User,
   ): Promise<Card> {
+    this.logger.verbose(
+      `User "${user.username}" creating a new card. Data: ${JSON.stringify(
+        createCardDto,
+      )}`,
+    );
     return this.cardsService.createCard(createCardDto, user);
   }
 
