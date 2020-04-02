@@ -4,15 +4,28 @@ import { CreateCardDto } from './dto/create-card.dto';
 import { CardStatus } from './card-status.enum';
 import { GetCardsFilterDto } from './dto/get-cards-filter.dto';
 import { User } from 'src/auth/user.entity';
+import { Logger, InternalServerErrorException } from '@nestjs/common';
 
 @EntityRepository(Card)
 export class CardRepository extends Repository<Card> {
+  private logger = new Logger('CardRepository');
+
   async createCard(createCardDto: CreateCardDto, user: User): Promise<Card> {
     const { title, description } = createCardDto;
 
     const card = new Card(title, description, CardStatus.TO_DO, user);
 
-    await card.save();
+    try {
+      await card.save();
+    } catch (error) {
+      this.logger.error(
+        `Failed to create a new card for user: ${
+          user.username
+        }. createCardDto: ${JSON.stringify(createCardDto)}`,
+        error.stack,
+      );
+      throw new InternalServerErrorException();
+    }
 
     delete card.user;
 
@@ -37,8 +50,17 @@ export class CardRepository extends Repository<Card> {
       );
     }
 
-    const cards = await query.getMany();
-
-    return cards;
+    try {
+      const cards = await query.getMany();
+      return cards;
+    } catch (error) {
+      this.logger.error(
+        `Failed to get cards for user "${
+          user.username
+        }". Filters: ${JSON.stringify(filterDto)}`,
+        error.stack,
+      );
+      throw new InternalServerErrorException();
+    }
   }
 }
