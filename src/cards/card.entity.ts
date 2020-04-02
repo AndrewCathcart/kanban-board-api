@@ -5,11 +5,11 @@ import {
   Column,
   ManyToOne,
 } from 'typeorm';
-import { TaskStatus } from './task-status.enum';
+import { CardStatus } from './card-status.enum';
 import { User } from 'src/auth/user.entity';
 
 @Entity()
-export class Task extends BaseEntity {
+export class Card extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -20,11 +20,11 @@ export class Task extends BaseEntity {
   description: string;
 
   @Column()
-  status: TaskStatus;
+  status: CardStatus;
 
   @ManyToOne(
     () => User,
-    user => user.tasks,
+    user => user.cards,
     { eager: false },
   )
   user: User;
@@ -35,7 +35,7 @@ export class Task extends BaseEntity {
   constructor(
     title: string,
     description: string,
-    status: TaskStatus,
+    status: CardStatus,
     user: User,
   ) {
     super();

@@ -1,4 +1,4 @@
-export enum TaskStatus {
+export enum CardStatus {
   TO_DO = 'TO_DO',
   IN_PROGRESS = 'IN_PROGRESS',
   DONE = 'DONE',
