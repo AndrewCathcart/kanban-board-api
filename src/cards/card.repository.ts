@@ -14,7 +14,18 @@ export class CardRepository extends Repository<Card> {
     const { title, description } = createCardDto;
 
     const card = new Card(title, description, CardStatus.TO_DO, user);
-    await card.save();
+
+    try {
+      await card.save();
+    } catch (error) {
+      this.logger.error(
+        `Failed to create a new card for user: ${
+          user.username
+        }. createCardDto: ${JSON.stringify(createCardDto)}`,
+        error.stack,
+      );
+      throw new InternalServerErrorException();
+    }
 
     delete card.user;
 
@@ -44,7 +55,7 @@ export class CardRepository extends Repository<Card> {
       return cards;
     } catch (error) {
       this.logger.error(
-        `Failed to get tasks for user "${
+        `Failed to get cards for user "${
           user.username
         }". Filters: ${JSON.stringify(filterDto)}`,
         error.stack,
