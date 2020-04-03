@@ -21,7 +21,7 @@ export class AuthService {
 
   async signIn(
     authCredentialsDto: AuthCredentialsDto,
-  ): Promise<{ token: string }> {
+  ): Promise<{ accessToken: string }> {
     const username = await this.userRepository.validateUserPassword(
       authCredentialsDto,
     );
@@ -30,12 +30,12 @@ export class AuthService {
     }
 
     const payload: JwtPayload = { username };
-    const token = await this.jwtService.sign(payload);
+    const accessToken = await this.jwtService.sign(payload);
 
     this.logger.debug(
       `Generated JWT token with payload ${JSON.stringify(payload)}`,
     );
 
-    return { token };
+    return { accessToken };
   }
 }

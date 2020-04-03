@@ -1,5 +1,5 @@
 db:
-  host: '0.0.0.0'
+  host: 'postgres'
   username: 'postgres'
   password: 'postgres'
   synchronize: true

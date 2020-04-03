@@ -45,8 +45,8 @@ export class CardRepository extends Repository<Card> {
 
     if (search) {
       query.andWhere(
-        'card.title LIKE :search OR card.description LIKE :search',
-        { search: `%${search}%` },
+        'LOWER(card.title) LIKE :search OR LOWER(card.description) LIKE :search',
+        { search: `%${search.toLowerCase()}%` },
       );
     }
 
