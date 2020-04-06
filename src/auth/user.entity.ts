@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 import * as bcrypt from 'bcryptjs';
-import { Card } from 'src/cards/card.entity';
+import { Card } from '../cards/card.entity';
 
 @Entity()
 @Unique(['username'])
