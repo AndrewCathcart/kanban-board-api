@@ -32,13 +32,6 @@ export class User extends BaseEntity {
   )
   cards: Card[];
 
-  constructor(username: string, password: string, salt: string) {
-    super();
-    this.username = username;
-    this.password = password;
-    this.salt = salt;
-  }
-
   async validatePassword(password: string): Promise<boolean> {
     const hash = await bcrypt.hash(password, this.salt);
 
