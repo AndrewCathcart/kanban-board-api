@@ -20,19 +20,11 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package.json" }}
       - run:
-          name: Running Linter
-          command: npm run lint
-      - run:
           name: Running Unit Tests
           command: npm run test
-      # - run:
-      #     name: Running E2E Tests
-      #     command: npm run test:e2e
       - run:
           name: Running Build
           command: npm run build
-      - store_test_results:
-          path: test-results
 
 workflows:
   version: 2
