@@ -6,9 +6,9 @@ jobs:
     steps:
       - checkout
       - persist_to_workspace:
-        root: .
-        paths:
-          - .
+          root: .
+          paths:
+            - .
       - restore_cache:
           keys:
             - dependencies-{{ checksum "package.json" }}
@@ -25,6 +25,9 @@ jobs:
       - run:
           name: Running Unit Tests
           command: npm run test
+      # - run:
+      #     name: Running E2E Tests
+      #     command: npm run test:e2e
       - run:
           name: Running Build
           command: npm run build
