@@ -31,17 +31,4 @@ export class Card extends BaseEntity {
 
   @Column()
   userId: number;
-
-  constructor(
-    title: string,
-    description: string,
-    status: CardStatus,
-    user: User,
-  ) {
-    super();
-    this.title = title;
-    this.description = description;
-    this.status = status;
-    this.user = user;
-  }
 }

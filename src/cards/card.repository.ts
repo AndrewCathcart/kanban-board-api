@@ -13,7 +13,11 @@ export class CardRepository extends Repository<Card> {
   async createCard(createCardDto: CreateCardDto, user: User): Promise<Card> {
     const { title, description } = createCardDto;
 
-    const card = new Card(title, description, CardStatus.TO_DO, user);
+    const card = this.create();
+    card.title = title;
+    card.description = description;
+    card.status = CardStatus.TO_DO;
+    card.user = user;
 
     try {
       await card.save();

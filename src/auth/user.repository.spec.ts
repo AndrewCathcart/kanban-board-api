@@ -27,19 +27,19 @@ describe('UserRepository', () => {
       save = jest.fn();
       userRepository.create = jest.fn().mockReturnValue({ save });
     });
-    // successfully register user
+
     it('successfully signs up the user', () => {
       save.mockReturnValue(undefined);
       expect(userRepository.signUp(mockCredentialsDto)).resolves.not.toThrow();
     });
-    // throw a ConflictException
+
     it('throws a ConflictException as the username already exists', () => {
       save.mockRejectedValue({ code: '23505' });
       expect(userRepository.signUp(mockCredentialsDto)).rejects.toThrow(
         ConflictException,
       );
     });
-    // throw an InternalServerErrorException
+
     it('throws a InternalServerErrorException for any other error', () => {
       save.mockRejectedValue({ code: '123' });
       expect(userRepository.signUp(mockCredentialsDto)).rejects.toThrow(
@@ -95,13 +95,13 @@ describe('UserRepository', () => {
 
   describe('hashPassword', () => {
     it('calls bcrypt.hash() to generate a hashed password', async () => {
-      (bcrypt.hash as jest.Mock) = jest.fn().mockResolvedValue('testHash');
+      (bcrypt.hash as jest.Mock) = jest.fn().mockResolvedValue('testhash');
       expect(bcrypt.hash).not.toHaveBeenCalled();
 
       const result = await userRepository.hashPassword('testpw', 'testsalt');
 
       expect(bcrypt.hash).toHaveBeenCalledWith('testpw', 'testsalt');
-      expect(result).toEqual('testHash');
+      expect(result).toEqual('testhash');
     });
   });
 });
