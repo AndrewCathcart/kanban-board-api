@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 import * as bcrypt from 'bcryptjs';
-import { Card } from 'src/cards/card.entity';
+import { Card } from '../cards/card.entity';
 
 @Entity()
 @Unique(['username'])
@@ -31,13 +31,6 @@ export class User extends BaseEntity {
     { eager: true },
   )
   cards: Card[];
-
-  constructor(username: string, password: string, salt: string) {
-    super();
-    this.username = username;
-    this.password = password;
-    this.salt = salt;
-  }
 
   async validatePassword(password: string): Promise<boolean> {
     const hash = await bcrypt.hash(password, this.salt);
