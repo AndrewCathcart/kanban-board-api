@@ -47,12 +47,12 @@ describe('CardsService', () => {
   describe('getCards', () => {
     it('gets all cards from the repository', async () => {
       (cardRepository.getCards as jest.Mock).mockResolvedValue('a value');
-
       expect(cardRepository.getCards).not.toHaveBeenCalled();
       const filters: GetCardsFilterDto = {
         status: CardStatus.TO_DO,
         search: 'test',
       };
+
       const result = await cardsService.getCards(filters, mockUser);
 
       expect(cardRepository.getCards).toHaveBeenCalled();
