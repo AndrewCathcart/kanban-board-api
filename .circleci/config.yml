@@ -2,7 +2,7 @@ version: 2
 jobs:
   test_and_build:
     docker:
-      - image: circleci/node:lts
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - restore_cache:
