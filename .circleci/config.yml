@@ -16,9 +16,6 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package.json" }}
       - run:
-          name: Running Formatter
-          command: npm run format
-      - run:
           name: Running Linter
           command: npm run lint
       - run:
