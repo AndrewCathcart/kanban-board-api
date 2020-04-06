@@ -1,8 +1,8 @@
 {
   "name": "nestjs-todo",
   "version": "0.0.1",
-  "description": "",
-  "author": "Backend code for a Trello clone with Nestjs & AWS",
+  "description": "Backend code for a TODO app using NestJs",
+  "author": "Andy Cathcart",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
