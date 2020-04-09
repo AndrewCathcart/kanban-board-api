@@ -7,7 +7,7 @@ This repo contains the backend code for a todo app that I'm working on for fun i
 - [Nest](https://github.com/nestjs/nest)
 - Unit & Integration Testing
 - Docker & docker-compose
-- Microservice Architecture vs Service Oriented Architecture
+- Microservice Architecture vs Monoliths
 - CI & CD
 
 ## Installation
